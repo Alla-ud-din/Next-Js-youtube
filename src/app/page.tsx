@@ -1,10 +1,26 @@
+'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
+import { useState } from 'react'
 
 export default function Home() {
+  const [name, setName] = useState("Anil")
+
+  const apple = () => {
+    setName("Sidhu")
+  }
+
+  function InnerComp(){
+    return (
+      <h1>Inner Component</h1>
+    )
+  }
   return (
     <main className={styles.main}>
-      <h1>Basic Routing | Make New Page</h1>
+      <h1>Events , function and state {name} </h1>
+      <button onClick={() => apple()}>Click Me</button>
+      <InnerComp />
+      {/* {InnerComp()} */}
     </main>
   )
 }
