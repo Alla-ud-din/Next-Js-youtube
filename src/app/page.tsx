@@ -9,7 +9,6 @@ export default function Home() {
   const apple = () => {
     setName("Sidhu")
   }
-
   function InnerComp(){
     return (
       <h1>Inner Component</h1>
