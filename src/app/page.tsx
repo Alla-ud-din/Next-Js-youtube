@@ -1,25 +1,24 @@
-'use client'
-import Image from 'next/image'
+"use client"
+import Link from 'next/link'
 import styles from './page.module.css'
-import { useState } from 'react'
+import {useRouter} from 'next/navigation'
 
 export default function Home() {
-  const [name, setName] = useState("Anil")
-
-  const apple = () => {
-    setName("Sidhu")
-  }
-  function InnerComp(){
-    return (
-      <h1>Inner Component</h1>
-    )
+  const router = useRouter();
+  const navigate=(name: string)=>{
+    router.push(name)
   }
   return (
-    <main className={styles.main}>
-      <h1>Events , function and state {name} </h1>
-      <button onClick={() => apple()}>Click Me</button>
-      <InnerComp />
-      {/* {InnerComp()} */}
+    <main>
+     <h1>Nested Routing</h1> 
+     <Link href="/login" >Go to Login Page</Link>
+     <br />
+     <br />
+     <Link href="/about" >Go to About Page</Link>
+     <br />
+     <br />
+     <button onClick={()=>navigate("/login")} >Go to Login Page</button>
+     <button onClick={()=>navigate("/about")} >Go to About Page</button>
     </main>
   )
 }
