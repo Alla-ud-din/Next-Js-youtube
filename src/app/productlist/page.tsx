@@ -1,19 +1,18 @@
 
 async function productList() {
-  let data = await fetch("https://dummyjson.com/products");
-  data = await data.json();
-  return data.products
+  let res = await fetch("https://dummyjson.com/products");
+  let data = await res.json();
+  return data.products;
 }
 
 export default async function Page() {
-
-  let products = await productList();
-  console.log(products);
-  return (<div>
+  let product = await productList();
+  console.log(product);
+  return (<div> 
       <h1>Product List</h1>
       {
-          products.map((item)=>(
-              <div><h3>Name: {item.title}</h3></div>
+          product.map((item: any)=>(
+              <div><h3>Name: {item.title} and Price: {item.price}</h3></div>
           ))
       }
   </div>)
