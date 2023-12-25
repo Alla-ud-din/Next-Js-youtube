@@ -9,7 +9,7 @@ export default async function Page(){
             <h1>User List</h1>
             {
                 users.map((user : any)=>(
-                    <h2>
+                    <h2 key={user.id}>
                         <Link href={`/users/${user.id}`} >{user.name}</Link>
                     </h2>
                 ))
