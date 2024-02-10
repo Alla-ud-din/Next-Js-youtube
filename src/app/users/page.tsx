@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react'
 async function getUser() {
-    let data = await fetch("http://localhost:3000/api/users").then((res)=>res.json())
+    let data = await fetch("http://localhost:3000/api/users",{cache: 'no-store'}).then((res)=>res.json())
+    console.log(data)
     return data
 }
 type itemsType = {
