@@ -19,8 +19,9 @@ export default async function page() {
         <h1>User List</h1>
         {
             users.map((item: itemsType)=>(
-                <div>
-                    <Link href={`users/${item.id}`}>{item.name}</Link>
+                <div className='w-24 flex gap-4'>
+                    <span><Link href={`users/${item.id}`}>{item.name}</Link></span>
+                    <span><Link href={`users/${item.id}/update`}>Edit</Link></span>
                 </div>
             ))
         }
